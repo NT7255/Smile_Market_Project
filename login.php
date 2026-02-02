@@ -9,6 +9,39 @@
 </head>
 <body>
     <?php include "tab-above-user1.php"; ?> <!-- แทบบน อย่าแก้ By เติ้ง --> <!--โหลดไฟล์ tab-above-user1.php ด้วย-->
+<div class="container">
+
+    <!-- ฝั่งซ้าย -->
+    <div class="login-section">
+        <div class="login-content">
+            <img src="images/smile-market-logo.PNG" alt="Smile Market Logo"class="logo">
+
+            <h3>กรอกเพื่อเข้าสู่ระบบ</h3>
+
+            <form>
+                <label>อีเมล หรือเบอร์โทรของคุณ</label>
+                <input type="text" placeholder="teemarot@email.com">
+
+                <label>รหัสผ่าน</label>
+                <input type="password" placeholder="********">
+
+                <a href="repassword.php" class="forgot">ลืมรหัสผ่าน</a>
+
+                <button type="submit" class="login-btn">เข้าสู่ระบบ</button>
+
+                <p class="register">
+                    หากยังไม่มีบัญชี คลิก <a href="#">สร้างบัญชี</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ฝั่งขวา -->
+    <div class="image-section">
+        <img src="images/shopping.png" alt="shopping">
+    </div>
+
+</div>
 
 </body>
 </html>
