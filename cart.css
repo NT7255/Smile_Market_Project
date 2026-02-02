@@ -1,0 +1,142 @@
+.cart-container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 60px;
+    background: #fff;
+    border-radius: 16px;
+    min-height: 300px;
+    min-height: unset;
+}
+
+/* ===== EMPTY STATE ===== */
+.cart-empty {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.cart-empty h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.cart-empty p {
+    font-size: 14px;
+    color: #777;
+}
+
+/* ===== LIST (ยังไม่แสดง) ===== */
+.cart-list {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+}
+/*===มีสินค้า===*/
+.cart-container.has-items .cart-list {
+    display: flex;
+}
+.cart-container.has-items .cart-empty {
+    display: none;
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+}
+.item-image img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.item-info {
+    flex: 1;
+}
+
+.item-name {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.item-price {
+    color: #ff7a00;
+    font-weight: bold;
+}
+.item-qty {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #555;
+/*=======ปุ่ม + - จำนวนสินค้าในตะกร้า====*/
+}
+
+.qty-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 6px;
+    background: #f0f0f0;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.qty-btn:hover {
+    background: #ddd;
+}
+
+.qty-number {
+    min-width: 20px;
+    text-align: center;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    color: red;
+}
+/*==== สรุปราคารวม  ========*/
+.cart-summary {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
+    
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+}
+/* เมื่อมีสินค้า (ตัวราคารวม) */
+.cart-container.has-items .cart-summary {
+    display: flex;
+}
+.summary-row {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.summary-price {
+    color: #ff7a00;
+    margin-left: 10px;
+}
+
+.checkout-btn {
+    padding: 12px 30px;
+    background: #ff7a00;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.checkout-btn:hover {
+    background: #e56d00;
+}
