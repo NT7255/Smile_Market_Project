@@ -9,6 +9,7 @@
 </head>
 <body>
     <?php include "tab-above-user2.php"; ?> <!-- แทบบน อย่าแก้ By เติ้ง --> <!--โหลดไฟล์ tab-above-user2.php ด้วย-->
-    หน้าแก้ไขและลบข้อมูลสินค้า
+    หน้าแก้ไขโปรไฟล์
 </body>
+
 </html>
