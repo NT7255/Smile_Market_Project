@@ -1,0 +1,33 @@
+.windowns{
+    background-color: #F8F8F8;
+    width: 400px;
+    height: 200px;
+    border-radius: 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.in-windowns{
+    font-weight: bold;
+    font-size: 16px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content-for-windowns{
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center; /* กลางแนวนอน */
+    align-items: center; /* กลางแนวตั้ง */
+}
+
+.double-buttons{
+    display: flex;              /* สำคัญมาก */
+    justify-content: center;    /* กลางแนวนอน */
+    align-items: center;        /* กลางแนวตั้ง */
+    gap: 10px;                  /* ระยะห่างระหว่างปุ่ม */
+}

@@ -33,16 +33,6 @@
             </div>
         </div>
 
-        <!-- OTP -->
-        <div class="form-group">
-            <label>ยืนยันรหัสจาก SMS</label>
-
-            <div class="sms-row">
-                <input type="text" placeholder="กรอก">
-                <button type="button" class="otp-btn">ขอรหัสจาก SMS</button>
-            </div>
-        </div>
-
         <!-- ปุ่ม -->
         <div class="action-buttons">
             <button type="button" class="cancel-btn">ยกเลิก</button>

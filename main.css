@@ -1,5 +1,7 @@
 body {
-    margin: 0;}
+    margin: 0;
+    background-color: white;
+}
 
 .pt1{
     position: absolute;
@@ -39,7 +41,6 @@ body {
     right: 40px;
 }
 
-
 .circle{
     width: 60px;
     height: 60px;
@@ -48,7 +49,7 @@ body {
 }
 
 .above-tab{
-    background: orange;
+    background: #FF8A00;
     height: 100px;
     display: flex;
     cursor: pointer;
@@ -88,7 +89,8 @@ body {
     color: white;
 }
 
-.my-account{
+/* ========== ปุ่มใหญ่ ========== */
+.big-button-or1{
     border: none;
     border-radius: 8px;
     background:white;
@@ -99,6 +101,160 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 16px;
+}.big-button-or1:hover{
+    border: none;
+    background:#fce4c9;
+    color: #fb9622;
+}.big-button-or1:active{
+    border: none;
+    background:white;
+    color: #feac4f;
+}
+
+.big-button-or2{
+    border: none;
+    border-radius: 8px;
+    background:#FF8A00;
+    color: white;
+    width: 160px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}.big-button-or2:hover{
+    border: none;
+    background:#fb9622;
+    color: white;
+}.big-button-or2:active{
+    border: none;
+    background:#feac4f;
+    color: white;
+}
+
+.big-button-or3{
+    border: 1px solid #FF8A00;
+    border-radius: 8px;
+    background:white;
+    color: #FF8A00;
+    width: 160px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}.big-button-or3hover{
+    border: 1px solid #fb9622;
+    background:white;
+    color: #fb9622;
+}.big-button-or3:active{
+    border: 1px solid #feac4f;
+    background:white;
+    color: #feac4f;
+}
+
+/* ========== ปุ่มเล็ก ========== */
+.small-button-or1{
+    border: none;
+    border-radius: 8px;
+    background:white;
+    color: #FF8A00;
+    width: 130px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.small-button-or1:hover{
+    border: none;
+    background:#fce4c9;
+    color: #fb9622;
+}.small-button-or1:active{
+    border: none;
+    background:white;
+    color: #feac4f;
+}
+
+.small-button-or2{
+    border: none;
+    border-radius: 8px;
+    background:#FF8A00;
+    color: white;
+    width: 130px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}.small-button-or2:hover{
+    border: none;
+    background:#fb9622;
+    color: white;
+}.small-button-or2:active{
+    border: none;
+    background:#feac4f;
+    color: white;
+}
+
+.small-button-or3{
+    border: 1px solid #FF8A00;
+    border-radius: 8px;
+    background:white;
+    color: #FF8A00;
+    width: 130px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}.small-button-or3:hover{
+    border: 1px solid #fb9622;
+    background:#fce4c9;
+    color: #fb9622;
+}.small-button-or3:active{
+    border: 1px solid #feac4f;
+    background:white;
+    color: #feac4f;
+}
+
+/* ========== ปุ่มตกลง ========== */
+.green-bt{
+    width: 130px;
+    height: 40px;
+    background-color: #3BC57E;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;   
+}.green-bt:hover{
+    background-color: #51de95;
+    color: white;
+    border: none;
+}.green-bt:active{
+    background-color: #6afbb0;
+    color: white;
+    border: none;
+}
+
+/* ========== ปุ่มปฏิเสธ ========== */
+.red-bt{
+    width: 130px;
+    height: 40px;
+    background-color: #FF4D4F;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}.red-bt:hover{
+    background-color: #ff6a6c;
+    color: white;
+    border: none;
+}.red-bt:active{
+    background-color: #ff8486;
+    color: white;
+    border: none;
 }
 
 .profile-icon{
@@ -106,4 +262,53 @@ body {
     width: 24px;
     height: 24px;
     padding-right: 4px;
+}
+
+.left-center-right{
+    display: flex;
+    justify-content: center;
+}
+
+/* ========== บรรทัดเดียวกัน ========== */
+.oneline{
+    display: flex;
+    align-items: center;
+}
+
+/* ========== บรรทัดเดียวกัน + จัดตรงกลาง ========== */
+.content-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px ;
+}
+
+/* ==================================== FONT ==================================== */
+.sub-heading{
+    font-weight: bold;
+    font-size: 20px;
+}
+.title-is16px{
+    font-size: 16px;
+}
+.is16px{
+    font-size: 16px;
+}
+.l-is16px{
+    font-size: 16px;
+    font-weight:thin;
+    color: #333333;
+}
+.title-detail{
+    font-size: 14px;
+}
+.detail{
+    font-size: 14px;
+}
+.price{
+    font-weight: bold;
+    font-size: 18px;
+}
+.text-center{
+    text-align: center;
 }
