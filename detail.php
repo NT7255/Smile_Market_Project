@@ -22,7 +22,7 @@
                 <div class="center_zone_r1">
                     <div class="sub-heading">เนื้อวัว A5</div>
                     <div class="oneline">
-                        <p class="title-is16px"><b>ID:&nbsp;</b></p>
+                        <p class="title-is16px"><b>ID :&nbsp;</b></p>
                         <p class="l-is16px">12345678 </p>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="center_zone_r3">
                     <div class="oneline">
-                        <p class="title-is16px"><b>วันหมดอายุ:&nbsp;</b></p>
+                        <p class="title-is16px"><b>วันหมดอายุ :&nbsp;</b></p>
                         <p class="l-is16px">23/04/2026</p>
                     </div>
                 </div>

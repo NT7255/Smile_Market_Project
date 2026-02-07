@@ -282,8 +282,17 @@ body {
     justify-content: center;
     gap: 8px ;
 }
+.mg-left-8px{
+    padding-left: 8px;
+}
 
 /* ==================================== FONT ==================================== */
+.start-heading{
+    padding-top: 40px;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
 .sub-heading{
     font-weight: bold;
     font-size: 20px;
