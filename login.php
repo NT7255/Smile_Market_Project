@@ -10,20 +10,19 @@
 <body>
     <?php include "tab-above-user1.php"; ?> <!-- แทบบน อย่าแก้ By เติ้ง --> <!--โหลดไฟล์ tab-above-user1.php ด้วย-->
 <div class="container">
-
     <!-- ฝั่งซ้าย -->
     <div class="login-section">
         <div class="login-content">
-            <img src="images/smile-market-logo.PNG" alt="Smile Market Logo"class="logo">
+            <img src="images/smile-market-logo-cutouted.PNG" alt="Smile Market Logo"class="logo">
 
             <h3>กรอกเพื่อเข้าสู่ระบบ</h3>
 
             <form>
                 <label>อีเมล หรือเบอร์โทรของคุณ</label>
-                <input type="text" placeholder="teemarot@email.com">
+                <input type="text" placeholder="teemarot@email.com" class="forms">
 
                 <label>รหัสผ่าน</label>
-                <input type="password" placeholder="********">
+                <input type="password" placeholder="********" class="forms">
 
                 <a href="repassword.php" class="forgot">ลืมรหัสผ่าน</a>
 
