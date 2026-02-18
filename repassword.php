@@ -1,3 +1,27 @@
+<?php
+include "connect.php";
+
+if (isset($_POST['reset'])) {
+
+    $email    = $_POST['email'];
+    $password = $_POST['password'];
+
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+
+    $sql = "UPDATE tb_member
+            SET member_password = ?
+            WHERE member_email = ?";
+
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "ss", $hash, $email);
+
+    if (mysqli_stmt_execute($stmt)) {
+        echo "เปลี่ยนรหัสผ่านสำเร็จ";
+    } else {
+        echo "ไม่พบ Email";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

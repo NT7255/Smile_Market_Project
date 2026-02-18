@@ -1,3 +1,34 @@
+<?php
+session_start();
+include "connect.php";
+
+// ✅ ถ้าล็อกอินแล้ว → เด้งไปหน้า index
+if (isset($_SESSION['member_id'])) {
+    header("Location: index.php");
+    exit();
+}
+
+if (isset($_POST['login'])) {
+
+    $email = $_POST['member_email'];
+    $password = $_POST['member_password'];
+
+    $sql = "SELECT * FROM member WHERE member_email='$email'";
+    $result = mysqli_query($conn, $sql);
+    $user = mysqli_fetch_assoc($result);
+
+    if ($user && password_verify($password, $user['member_password'])) {
+
+        $_SESSION['member_id'] = $user['member_id'];
+
+        header("Location: index.php");   // ✅ ไปหน้าแรก
+        exit();
+
+    } else {
+        echo "Email หรือ Password ไม่ถูกต้อง";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,18 +49,18 @@
             <h3>กรอกเพื่อเข้าสู่ระบบ</h3>
 
             <form>
-                <label>อีเมล หรือเบอร์โทรของคุณ</label>
-                <input type="text" placeholder="teemarot@email.com" class="forms">
+                <label>ชื่ออีเมล์ หรือเบอร์โทรของคุณ</label>
+                <input type="text" name="email" placeholder="teemarot@email.com" class="forms">
 
                 <label>รหัสผ่าน</label>
-                <input type="password" placeholder="********" class="forms">
+                <input type="password" name="password" placeholder="********" class="forms">
 
                 <a href="repassword.php" class="forgot">ลืมรหัสผ่าน</a>
 
-                <button type="submit" class="login-btn">เข้าสู่ระบบ</button>
+                <button type="submit" class="login-btn" name="login">เข้าสู่ระบบ</button>
 
                 <p class="register">
-                    หากยังไม่มีบัญชี คลิก <a href="#">สร้างบัญชี</a>
+                    หากยังไม่มีบัญชี คลิก <a href="register.php">สร้างบัญชี</a>
                 </p>
             </form>
         </div>

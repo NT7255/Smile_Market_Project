@@ -78,8 +78,8 @@
 
             <!-- อีเมล -->
             <div class="form-group">
-                <label>อีเมล</label>
-                <input type="email" placeholder="......@example.com">
+                <label>ชื่อผู้ใช้</label>
+                <input for="email" type="text" placeholder="......@example.com">
             </div>
 
             <!-- รหัสผ่าน -->
