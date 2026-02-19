@@ -1,0 +1,96 @@
+/* admin_goods_edit.css - Version Complete */
+body { 
+    font-family: 'Kanit', sans-serif; 
+    background-color: #f8f9fa; 
+    margin: 0;
+    padding: 0;
+}
+
+.main_size { 
+    max-width: 900px; 
+    margin: 40px auto; 
+    background: white; 
+    padding: 40px; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+}
+
+.header-content h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.header-content p {
+    color: #666;
+    font-size: 14px;
+}
+
+.line { 
+    margin: 20px 0; 
+    border-bottom: 1px solid #eee; 
+}
+
+.admin-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 10px; 
+}
+
+.admin-table th { 
+    text-align: left; 
+    padding: 15px; 
+    background-color: #fffaf0; /* สีส้มอ่อนๆ ให้เข้าธีม */
+    border-bottom: 2px solid #ff9800; 
+    color: #444; 
+    font-weight: 500;
+}
+
+.admin-table td { 
+    padding: 15px; 
+    border-bottom: 1px solid #eee; 
+    vertical-align: middle; 
+    color: #555;
+}
+
+.img-thumb { 
+    width: 60px; 
+    height: 60px; 
+    object-fit: cover; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ปุ่มจัดการให้เป็นสไตล์เดียวกัน */
+.btn-edit-sm { 
+    color: #007bff; 
+    background: white; 
+    border: 1px solid #007bff; 
+    padding: 6px 15px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    margin-right: 5px; 
+    transition: 0.3s;
+    font-family: 'Kanit', sans-serif;
+}
+
+.btn-edit-sm:hover { 
+    background: #007bff; 
+    color: white; 
+}
+
+.btn-del-sm { 
+    color: #dc3545; 
+    background: white; 
+    border: 1px solid #dc3545; 
+    padding: 6px 15px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: 0.3s;
+    font-family: 'Kanit', sans-serif;
+}
+
+.btn-del-sm:hover { 
+    background: #dc3545; 
+    color: white; 
+}
