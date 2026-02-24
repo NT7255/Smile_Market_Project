@@ -2,71 +2,86 @@
 session_start();
 include "connect.php";
 
-// ✅ ถ้าล็อกอินแล้ว → เด้งไปหน้า index
-if (isset($_SESSION['member_id'])) {
-    header("Location: index.php");
-    exit();
-}
+$error = "";
 
 if (isset($_POST['login'])) {
 
-    $email = $_POST['member_email'];
-    $password = $_POST['member_password'];
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-    $sql = "SELECT * FROM member WHERE member_email='$email'";
+    // ดึงข้อมูลจากฐานข้อมูล
+    $sql = "SELECT * FROM users WHERE email='$email' OR phone='$email'";
     $result = mysqli_query($conn, $sql);
-    $user = mysqli_fetch_assoc($result);
 
-    if ($user && password_verify($password, $user['member_password'])) {
+    if (mysqli_num_rows($result) > 0) {
 
-        $_SESSION['member_id'] = $user['member_id'];
+    $row = mysqli_fetch_assoc($result);
 
-        header("Location: index.php");   // ✅ ไปหน้าแรก
+    // เช็ครหัสผ่านแบบ hash
+    if (password_verify($password, $row['password'])) {
+
+        $_SESSION['user_id'] = $row['id'];
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['user_name'] = $row['firstname'];
+
+        header("Location: index.php");
         exit();
 
     } else {
-        echo "Email หรือ Password ไม่ถูกต้อง";
+        $error = "รหัสผ่านไม่ถูกต้อง";
     }
+
+} else {
+    $error = "ไม่พบผู้ใช้นี้ในระบบ";
+}
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <?php include "tab-above-user1.php"; ?> <!-- แทบบน อย่าแก้ By เติ้ง --> <!--โหลดไฟล์ tab-above-user1.php ด้วย-->
+
+<!-- <?php // include "tab-above-user1.php"; ?> -->
+
 <div class="container">
-    <!-- ฝั่งซ้าย -->
+
     <div class="login-section">
         <div class="login-content">
-            <img src="images/smile-market-logo-cutouted.PNG" alt="Smile Market Logo"class="logo">
+            <img src="images/smile-market-logo.PNG" alt="Smile Market Logo" class="logo">
 
             <h3>กรอกเพื่อเข้าสู่ระบบ</h3>
 
-            <form>
-                <label>ชื่ออีเมล์ หรือเบอร์โทรของคุณ</label>
-                <input type="text" name="email" placeholder="teemarot@email.com" class="forms">
+            <?php if($error != "") { ?>
+                <p style="color:red;"><?php echo $error; ?></p>
+            <?php } ?>
+
+            <form method="POST">
+
+                <label>อีเมล หรือเบอร์โทรของคุณ</label>
+                <input type="text" name="email" required placeholder="กรอกอีเมลของคุณ">
 
                 <label>รหัสผ่าน</label>
-                <input type="password" name="password" placeholder="********" class="forms">
+                <input type="password" name="password" required placeholder="********">
 
                 <a href="repassword.php" class="forgot">ลืมรหัสผ่าน</a>
 
-                <button type="submit" class="login-btn" name="login">เข้าสู่ระบบ</button>
+                <button type="submit" name="login" class="login-btn">เข้าสู่ระบบ</button>
 
                 <p class="register">
                     หากยังไม่มีบัญชี คลิก <a href="register.php">สร้างบัญชี</a>
                 </p>
+
             </form>
         </div>
     </div>
 
-    <!-- ฝั่งขวา -->
     <div class="image-section">
         <img src="images/shopping.png" alt="shopping">
     </div>
