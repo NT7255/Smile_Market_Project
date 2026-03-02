@@ -65,7 +65,7 @@ $query = mysqli_query($conn, $sql);
                             <a href="process_delete_goods.php?id=<?php echo $row['pro_id']; ?>" 
                                class="btn-del-sm" 
                                style="text-decoration: none; background-color: #dc3545; color: white; padding: 5px 10px; border-radius: 5px; font-size: 14px; display: inline-block;" 
-                               onclick="return confirm('มึงแน่ใจนะว่าจะลบสินค้า [<?php echo $row['pro_name']; ?>] ?');">ลบ</a>
+                               onclick="return confirm('แน่ใจนะว่าจะลบสินค้า [<?php echo $row['pro_name']; ?>] ?');">ลบ</a>
                         </td>
                     </tr>
                     <?php } // ปิด loop ?>
@@ -75,3 +75,4 @@ $query = mysqli_query($conn, $sql);
     </div>
 </body>
 </html>
+
