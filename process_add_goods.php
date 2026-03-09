@@ -23,16 +23,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO tb_product (pro_id, pro_name, pro_subinfo, pro_price, pro_info, pro_image) 
             VALUES ('$new_id', '$p_name', '$p_subinfo', '$p_price', '$p_detail', '$img_name')";
 
+    // ... (โค้ดส่วนบันทึก SQL เดิมของคุณ) ...
+
     if (mysqli_query($conn, $sql)) {
-    // บันทึกความสัมพันธ์หมวดหมู่
-        mysqli_query($conn, "INSERT INTO tb_tag (pro_id, cat_id) VALUES ('$new_id', '$cat_id')");
+        // สร้างไฟล์สำหรับลูกค้า
+        $file_customer = "detail_" . $new_id . ".php";
+        $content_customer = '<?php $pro_id = "' . $new_id . '"; include "detail_template.php"; ?>';
+        file_put_contents($file_customer, $content_customer);
 
-        // ส่วนสำคัญ: สร้างไฟล์รายละเอียดสินค้าที่เรียกใช้ Template
-        $new_file_name = "detail_" . $new_id . ".php";
-        $file_content = '<?php $pro_id = "' . $new_id . '"; include "detail_template.php"; ?>';
-        file_put_contents($new_file_name, $file_content);
+        // สร้างไฟล์สำหรับแอดมิน (เพิ่มตรงนี้!)
+        $file_admin = "admin_detail_" . $new_id . ".php";
+        $content_admin = '<?php $pro_id = "' . $new_id . '"; include "admin_detail_template.php"; ?>';
+        file_put_contents($file_admin, $content_admin);
 
-        echo "<script>alert('บันทึกสินค้าเรียบร้อยแล้ว'); window.location='homepage.php';</script>";
+        echo "<script>alert('บันทึกสินค้าและสร้างไฟล์เรียบร้อย'); window.location='admin_homepage.php';</script>";
     } else {
         // ถ้า Save ไม่ได้ ให้เปิดคำสั่งนี้เพื่อดูว่าผิดตรงไหน
         echo "Error: " . mysqli_error($conn); 

@@ -1,0 +1,97 @@
+.admin-login-body {
+    background-color: #ffda44; /* สีเหลืองตาม yellow_bg.css */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Kanit', sans-serif;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login-box {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.logo-section img {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+.logo-section h2 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.logo-section p {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff9800; /* สีส้มหลัก */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #e68a00;
+}
+
+.error-text {
+    color: #f44336;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.footer-link {
+    margin-top: 25px;
+}
+
+.footer-link a {
+    color: #888;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-link a:hover {
+    text-decoration: underline;
+}
