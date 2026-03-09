@@ -1,14 +1,13 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = ""; // ปกติ XAMPP รหัสผ่านว่าง
-$db   = "test"; // ชื่อฐานข้อมูลตามรูป phpMyAdmin 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "db_smilemarket"; // ชื่อฐานข้อมูลตามไฟล์ SQL ของคุณ
 
-$conn = mysqli_connect($host, $user, $pass, $db);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-// เช็คว่าเชื่อมติดไหม
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-mysqli_set_charset($conn, "utf8"); // กันภาษาไทยเป็นภาษาต่างดาว
+mysqli_set_charset($conn, "utf8");
 ?>

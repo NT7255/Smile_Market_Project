@@ -10,20 +10,25 @@ body { font-family: 'Kanit', sans-serif; background-color: #f8f9fa; }
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
+/* จัด Layout แบบแนวตั้ง */
 .admin-form { display: flex; flex-direction: column; gap: 20px; margin-top: 20px; }
 
 .form-group { display: flex; flex-direction: column; gap: 8px; }
 
+/* จัดราคาและประเภทให้อยู่คู่กัน */
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
 label { font-weight: 500; color: #333; }
 
+/* สำคัญ: ต้องใส่ width 100% เพื่อไม่ให้หลุดบรรทัด */
 input, textarea, select {
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 16px;
     outline: none;
+    width: 100%;
+    box-sizing: border-box; /* ป้องกัน Padding ดันขอบทะลุ */
 }
 
 input:focus { border-color: #ff9800; }
@@ -37,8 +42,16 @@ input:focus { border-color: #ff9800; }
     cursor: pointer;
     font-weight: bold;
     font-size: 16px;
+    transition: 0.3s;
 }
 
 .btn-save:hover { background-color: #e68a00; }
 
-.btn-cancel { background: none; border: none; color: #888; cursor: pointer; }
+.btn-cancel { 
+    background: #eee; 
+    border: none; 
+    color: #666; 
+    padding: 12px 20px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+}

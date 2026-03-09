@@ -48,13 +48,13 @@ if (isset($_POST['login'])) {
 </head>
 <body>
 
-<!-- <?php // include "tab-above-user1.php"; ?> -->
+<?php include "tab-above-user1.php"; ?>
 
 <div class="container">
 
     <div class="login-section">
         <div class="login-content">
-            <img src="images/smile-market-logo.PNG" alt="Smile Market Logo" class="logo">
+            <img src="images/smile-market-logo-cutouted.PNG" alt="Smile Market Logo" class="logo">
 
             <h3>กรอกเพื่อเข้าสู่ระบบ</h3>
 
@@ -65,10 +65,10 @@ if (isset($_POST['login'])) {
             <form method="POST">
 
                 <label>อีเมล หรือเบอร์โทรของคุณ</label>
-                <input type="text" name="email" required placeholder="กรอกอีเมลของคุณ">
+                <input class="forms" type="text" name="email" required placeholder="กรอกอีเมลของคุณ">
 
                 <label>รหัสผ่าน</label>
-                <input type="password" name="password" required placeholder="********">
+                <input class="forms" type="password" name="password" required placeholder="********">
 
                 <a href="repassword.php" class="forgot">ลืมรหัสผ่าน</a>
 

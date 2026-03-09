@@ -1,70 +1,18 @@
-.cart-container {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 60px;
-    background: #fff;
-    border-radius: 16px;
-    min-height: 300px;
-    min-height: unset;
+/* cart-container,
+cart-empty,
+cart-list,
+cart-item, 
+item-image img, 
+item-info, 
+item-name, 
+item-price 
+ย้ายไปอยู่ ordergoods_card แล้ว เด่วนำมาใช้กับไฟล์ payment.php ต่อ 
+ใช้ได้ทั้ง cart.php และ payment.php 
+หากใช้งานต่อ เอาไฟล์ ordergoods_card.css ไปด้วย */
+body{
+    background-color: white;
 }
 
-/* ===== EMPTY STATE ===== */
-.cart-empty {
-    text-align: center;
-    margin-top: 80px;
-}
-
-.cart-empty h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.cart-empty p {
-    font-size: 14px;
-    color: #777;
-}
-
-/* ===== LIST (ยังไม่แสดง) ===== */
-.cart-list {
-    display: none;
-    flex-direction: column;
-    gap: 20px;
-}
-/*===มีสินค้า===*/
-.cart-container.has-items .cart-list {
-    display: flex;
-}
-.cart-container.has-items .cart-empty {
-    display: none;
-}
-.cart-item {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    border: 1px solid #eee;
-    border-radius: 12px;
-}
-.item-image img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-.item-info {
-    flex: 1;
-}
-
-.item-name {
-    font-size: 16px;
-    margin-bottom: 6px;
-}
-
-.item-price {
-    color: #ff7a00;
-    font-weight: bold;
-}
 .item-qty {
     display: flex;
     align-items: center;

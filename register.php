@@ -105,7 +105,7 @@ if (isset($_POST['register'])) {
             </div>
             <div class="zones">
                 <div class="form-zone">
-                    <label for=""><b>เบอร์โทร</b></label>
+                    <label for=""><b>ที่อยู่</b></label>
                     <input class="gen-form2">
                 </div>
                 <div class="form-zone">

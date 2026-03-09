@@ -61,7 +61,15 @@
 .padding-10px-left-right{
     padding: 0 10px 0 10px;
 }
-.detail-size{
-    /* background-color: aquamarine; Test */
-    height:70px;
+
+.detail-size {
+    height: 40px; /* กำหนดความสูงคงที่เพื่อให้กล่องสินค้าเท่ากันทุกใบ */
+    overflow: hidden; /* ซ่อนส่วนที่เกิน */
+    margin-bottom: 5px;
+}
+
+.detail {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
 }

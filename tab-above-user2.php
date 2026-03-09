@@ -11,15 +11,6 @@
     <div class="above-tab">
         <!-- ปุ่มโลโก้ไปหน้าหลัก -->
         <a href="homepage.php" class="pt1"><img class="circle" src="images/smile-market-logo.PNG"></a>
-        <!-- ปุ่มแชต -->
-        <div class="pt4">
-            <a class="white-icon-button" href="chat.php" >
-                <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  
-fill="currentColor" viewBox="0 0 24 24" >
-                    <path d="M12 2C6.49 2 2 6.49 2 12c0 2.12.68 4.19 1.93 5.9l-1.75 2.53c-.21.31-.24.7-.06 1.03.17.33.51.54.89.54h9c5.51 0 10-4.49 10-10S17.51 2 12 2m0 18H4.91L6 18.43c.26-.37.23-.88-.06-1.22A7.98 7.98 0 0 1 4.01 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8Z"></path>
-                </svg>
-            </a>
-        </div>
         <!-- ปุ่มรถเข็น -->
         <div class="pt5">
             <a class="white-icon-button" href="cart.php" >
@@ -29,12 +20,13 @@ fill="currentColor" viewBox="0 0 24 24" >
                 </svg>
             </a>
         </div>
-        <!-- ปุ่มแจ้งเตือน -->
+        <!-- ปุ่มแจ้งเตือนสถานะการจัดส่ง -->
         <div class="pt6">
             <a class="white-icon-button" href="notify.php" >
                 <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  
 fill="currentColor" viewBox="0 0 24 24" >
-                    <path d="M19 12.59V10c0-3.22-2.18-5.93-5.14-6.74C13.57 2.52 12.85 2 12 2s-1.56.52-1.86 1.26C7.18 4.08 5 6.79 5 10v2.59L3.29 14.3a1 1 0 0 0-.29.71v2c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-2c0-.27-.11-.52-.29-.71zM19 16H5v-.59l1.71-1.71a1 1 0 0 0 .29-.71v-3c0-2.76 2.24-5 5-5s5 2.24 5 5v3c0 .27.11.52.29.71L19 15.41zm-4.18 4H9.18c.41 1.17 1.51 2 2.82 2s2.41-.83 2.82-2"></path>
+<!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free-->
+<path d="m21.95 8.68-2-6A1 1 0 0 0 19 2H6c-.38 0-.73.21-.89.55l-3 6s0 .03-.01.04c0 .02-.01.04-.02.07q-.06.15-.06.3V20c0 .55.45 1 1 1h18c.55 0 1-.45 1-1V8.97c0-.1-.01-.19-.05-.29ZM6.62 4h11.66l1.33 4H4.62zM20 19H4v-9h16z"></path>
                 </svg>
             </a>
         </div>

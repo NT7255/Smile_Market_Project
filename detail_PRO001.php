@@ -1,0 +1,1 @@
+<?php $pro_id = "PRO001"; include "detail_template.php"; ?>

@@ -1,0 +1,59 @@
+.payment_bg {
+    display: flex;
+}
+
+.left_bg {
+    background-color: white;
+    width: 70%;
+}
+/* ฝั่งขวา */
+.right_bg{
+    background-color: #D9D9D9;
+
+    width: 30%;
+    position: fixed;
+
+    right: 0;
+    top: 100px;                     /* ความสูง navbar */
+    height: calc(100vh - 80px);
+
+    padding: 40px;
+}
+
+.under_in_right_bg{
+    width: calc(100% - 80px);
+    position: absolute;
+    bottom: 140px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* แถวข้อมูล */
+.price_row{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ฝั่งซ้าย */
+.left_in_under{
+    color: #555;
+}
+
+/* ฝั่งขวา */
+.right_in_under{
+    font-weight: 500;
+}
+
+/* ยอดรวม */
+.total_price{
+    color: #ff7a00;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* ปุ่ม */
+.right_btn{
+    margin-left: auto;
+}

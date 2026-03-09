@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2026 at 01:58 PM
+-- Generation Time: Mar 09, 2026 at 02:06 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,6 +47,14 @@ CREATE TABLE `tb_category` (
   `cat_images` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `tb_category`
+--
+
+INSERT INTO `tb_category` (`cat_id`, `cat_name`, `cat_images`) VALUES
+('CAT001', 'ขนม', NULL),
+('CAT002', 'เนื้อสัตว์', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -72,7 +80,7 @@ CREATE TABLE `tb_member` (
 --
 
 INSERT INTO `tb_member` (`member_id`, `member_email`, `member_password`, `member_tel`, `member_name`, `member_lastname`, `member_address`, `member_sex`, `member_birthday`, `member_image`, `member_permis`) VALUES
-('MB00001', 'nattapon.nt7255@gmail.com', '$2y$10$sL1Ywgd.sZf0n', NULL, '', '', NULL, NULL, NULL, NULL, NULL);
+('MB00001', 'nattapon.nt7255@gmail.com', '$2y$10$aFJvH3Nkx9LAW', NULL, '', '', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -126,6 +134,13 @@ CREATE TABLE `tb_product` (
   `pro_exdate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `tb_product`
+--
+
+INSERT INTO `tb_product` (`pro_id`, `pro_name`, `pro_price`, `pro_info`, `pro_image`, `cat_show`, `pro_unit`, `pro_subinfo`, `pro_exdate`) VALUES
+('PRO001', 'หมูบด', 150, 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 'PRO001_1772975268.jpg', NULL, NULL, 'สด นุ่ม อร่อย', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -161,6 +176,13 @@ CREATE TABLE `tb_tag` (
   `pro_id` varchar(20) NOT NULL,
   `cat_id` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `tb_tag`
+--
+
+INSERT INTO `tb_tag` (`pro_id`, `cat_id`) VALUES
+('PRO001', 'CAT002');
 
 -- --------------------------------------------------------
 
