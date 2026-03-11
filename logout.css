@@ -1,33 +1,60 @@
-.windowns{
-    background-color: #F8F8F8;
-    width: 400px;
-    height: 200px;
-    border-radius: 8px;
+/* ฉากหลังมืดสลัวที่คลุมทั้งหน้าจอ */
+.logout-screen-overlay {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* สีดำโปร่งแสง 60% */
+    display: flex; /* ใช้ flex เพื่อจัดหน้าต่างไว้กึ่งกลาง */
+    justify-content: center;
+    align-items: center;
+    z-index: 99999; /* ให้อยู่เหนือทุกอย่าง */
 }
 
-.in-windowns{
+/* ตัวหน้าต่างสีขาว */
+.windowns {
+    background-color: white;
+    padding: 40px 60px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    animation: modalPopUp 0.3s ease-out;
+}
+
+@keyframes modalPopUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.content-for-windowns {
+    font-size: 20px;
     font-weight: bold;
-    font-size: 16px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-bottom: 35px;
+    color: #333;
 }
 
-.content-for-windowns{
-    margin-bottom: 40px;
+.double-buttons {
     display: flex;
-    justify-content: center; /* กลางแนวนอน */
-    align-items: center; /* กลางแนวตั้ง */
+    gap: 20px;
+    justify-content: center;
 }
 
-.double-buttons{
-    display: flex;              /* สำคัญมาก */
-    justify-content: center;    /* กลางแนวนอน */
-    align-items: center;        /* กลางแนวตั้ง */
-    gap: 10px;                  /* ระยะห่างระหว่างปุ่ม */
+/* ปรับสีปุ่มให้ตรงตามรูปที่คุณส่งมา */
+.double-buttons button {
+    padding: 12px 40px;
+    border-radius: 8px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
 }
+
+.green-bt { background-color: #2ecc71; } /* เขียวสว่าง */
+.red-bt { background-color: #ff4d4d; }   /* แดงสว่าง */
+
+.green-bt:hover { background-color: #27ae60; }
+.red-bt:hover { background-color: #e60000; }

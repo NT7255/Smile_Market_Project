@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 if (!isset($_SESSION['admin_status']) || $_SESSION['admin_status'] !== "logged_in") {
     header("Location: admin_login.php");
     exit();
@@ -18,6 +20,7 @@ $res = mysqli_query($conn, $sql);
     <title>Admin Home - Smile Market</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="admin_style.css">
+    <link rel="stylesheet" href="logout.css">
 </head>
 <body>
     <?php include "tab-above-admin-homepage.php"; ?>

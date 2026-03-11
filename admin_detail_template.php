@@ -19,6 +19,7 @@ if(!$item) { echo "ไม่พบข้อมูลสินค้า"; exit; }
     <link rel="stylesheet" href="detail.css">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="yellow_bg.css">
+    <link rel="stylesheet" href="logout.css">
     <style>
         /* สไตล์เพิ่มเติมสำหรับปุ่มจัดการของแอดมิน */
         .admin-action-box {
