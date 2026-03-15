@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2026 at 09:11 AM
+-- Generation Time: Mar 15, 2026 at 01:59 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -80,7 +80,9 @@ CREATE TABLE `tb_member` (
 --
 
 INSERT INTO `tb_member` (`member_id`, `member_email`, `member_password`, `member_tel`, `member_name`, `member_lastname`, `member_address`, `member_sex`, `member_birthday`, `member_image`, `member_permis`) VALUES
-('MB00001', 'nattapon.nt7255@gmail.com', '$2y$10$aFJvH3Nkx9LAW', NULL, '', '', NULL, NULL, NULL, NULL, NULL);
+('MB00001', 'nattapon.nt7255@gmail.com', '$2y$10$aFJvH3Nkx9LAW', NULL, '', '', NULL, NULL, NULL, NULL, NULL),
+('MB00002', 'test2@email.com', '$2y$10$7Hkf1fL23elyu', NULL, '', '', NULL, NULL, NULL, NULL, NULL),
+('MB00003', 'test2@email.com', '$2y$10$KsEzsLVJXjEhE', NULL, '', '', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -205,34 +207,23 @@ CREATE TABLE `tb_transport` (
 CREATE TABLE `tb_users` (
   `user_id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `firstname` varchar(100) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `birthday` date NOT NULL,
+  `gender` varchar(20) NOT NULL,
+  `address` text NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `users`
+-- Dumping data for table `tb_users`
 --
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `firstname` varchar(100) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `lastname` varchar(100) DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL,
-  `birthday` date DEFAULT NULL,
-  `gender` varchar(20) DEFAULT NULL,
-  `status` varchar(50) DEFAULT NULL,
-  `address` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `firstname`, `email`, `password`, `lastname`, `phone`, `birthday`, `gender`, `status`, `address`) VALUES
-(1, 'teemarot', 'test@email.com', '$2y$10$XRbwJOWqjicpfcuf1gk0Je3yap5M1tbt0cZ3sXl7fvR2SbbAxGfcm', 'test', '0987654321', '2222-07-07', 'ชาย', 'โสด', '33/1 ต.บางครุ อ.พระประแดง');
+INSERT INTO `tb_users` (`user_id`, `email`, `password`, `firstname`, `lastname`, `phone`, `birthday`, `gender`, `address`, `status`) VALUES
+(1, 'test@email.com', '$2y$10$RicUburgiHP6BlHiBorXI.AJcOFVKyzBnr1AW4Dzdk9yGVGBVxiIe', 'teemarot', 'test1', '0987654321', '2222-07-07', 'ชาย', '33/1 ต.บางครุ อ.พระประแดง', 'โสด'),
+(4, 'test3@email.com', '$2y$10$QF1QtXn1WMTrumFbl/koEOLFITqoTdctmlJUVNzxiZOATA1tjUtHq', 'เทสส', 'เทสส3', '0011223344', '2002-02-22', 'ชาย', '11/22 บางครุ พระประแดง', 'โหด');
 
 --
 -- Indexes for dumped tables
@@ -314,13 +305,6 @@ ALTER TABLE `tb_users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -328,13 +312,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `tb_users`
 --
 ALTER TABLE `tb_users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

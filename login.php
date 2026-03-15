@@ -10,7 +10,7 @@ if (isset($_POST['login'])) {
     $password = mysqli_real_escape_string($conn, $_POST['password']);
 
     // ดึงข้อมูลจากฐานข้อมูล
-    $sql = "SELECT * FROM users WHERE email='$email' OR phone='$email'";
+    $sql = "SELECT * FROM tb_users WHERE email='$email' OR phone='$email'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {

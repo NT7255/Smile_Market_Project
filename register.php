@@ -28,15 +28,13 @@ if (isset($_POST['register'])) {
     // hash password
     $hash = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO tb_member (
-                member_id,
-                member_email,
-                member_password
-            ) VALUES (
-                '$member_id',
-                '$email',
-                '$hash'
-            )";
+    $sql = "INSERT INTO tb_users (
+    email,
+    password
+) VALUES (
+    '$email',
+    '$hash'
+)";
 
         if (mysqli_query($conn, $sql)) {
 

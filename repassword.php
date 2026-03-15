@@ -16,12 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message_type = "error";
     } else {
 
-        $check = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
+        $check = mysqli_query($conn, "SELECT * FROM tb_users WHERE email='$email'");
 
         if (mysqli_num_rows($check) > 0) {
 
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            mysqli_query($conn, "UPDATE users SET password='$hashed_password' WHERE email='$email'");
+            mysqli_query($conn, "UPDATE tb_users SET password='$hashed_password' WHERE email='$email'");
 
             $message = "เปลี่ยนรหัสผ่านสำเร็จ";
             $message_type = "success";

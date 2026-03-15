@@ -11,7 +11,7 @@ $email = $_SESSION['email'];
 $message = "";
 
 // ดึงข้อมูลผู้ใช้
-$result = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
+$result = mysqli_query($conn, "SELECT * FROM tb_users WHERE email='$email'");
 $user = mysqli_fetch_assoc($result);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $address = $_POST['address'];
     $new_email = $_POST['email'];
 
-    mysqli_query($conn, "UPDATE users SET 
+    mysqli_query($conn, "UPDATE tb_users SET 
         firstname='$firstname',
         lastname='$lastname',
         phone='$phone',
@@ -47,7 +47,7 @@ setTimeout(function(){
 </script>";
 
     // โหลดข้อมูลใหม่
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE email='$new_email'");
+    $result = mysqli_query($conn, "SELECT * FROM tb_users WHERE email='$new_email'");
     $user = mysqli_fetch_assoc($result);
 }
 ?>
