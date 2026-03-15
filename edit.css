@@ -92,17 +92,40 @@
 
 /* ปุ่มบันทึก */
 .btn-save {
-    background-color: #6c63ff;
-    color: #fff;
+    padding:12px 35px;
+    background:#2ecc71;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
 }
 .btn-save:hover {
-    background-color: #554ee0;
+    background-color: #2c5f34;
 }
 /* ปุ่มยกเลิก */
 .btn-cancel {
-    background-color: #e0e0e0;
-    color: #333;
+    display:inline-block;
+    padding:12px 35px;
+    background:#cd5c5c;
+    color:#333;
+    border-radius:10px;
+    text-decoration:none;
+    font-size:16px;
+    transition:0.3s;
 }
 .btn-cancel:hover {
-    background-color: #cfcfcf;
+    background-color: #ff0000;
+}
+.form-group{
+    margin-bottom:15px;
+}
+.success-msg{
+    text-align:center;
+    background:#e8f5e9;
+    color:#2e7d32;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:20px;
 }

@@ -38,7 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ");
 
     $_SESSION['email'] = $new_email;
-    $message = "อัปเดตข้อมูลสำเร็จ";
+    $message = "อัปเดตข้อมูลสำเร็จ กำลังกลับหน้าแรก...";
+
+echo "<script>
+setTimeout(function(){
+    window.location.href='homepage.php';
+},2000);
+</script>";
 
     // โหลดข้อมูลใหม่
     $result = mysqli_query($conn, "SELECT * FROM users WHERE email='$new_email'");
@@ -51,8 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Edit Profile</title>
-    <link rel="stylesheet" href="edit.css">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="edit.css">
 </head>
 <body>
 
@@ -60,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h2 class="profile-title">แก้ไขข้อมูลโปรไฟล์ของคุณ</h2>
 
     <?php if($message != "") { ?>
-        <p style="color:green; text-align:center;"><?php echo $message; ?></p>
+       <p class="success-msg"><?php echo $message; ?></p>
     <?php } ?>
 
     <form method="POST" class="profile-form">
@@ -109,12 +115,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="email" name="email" value="<?php echo $user['email']; ?>">
         </div>
 
-        <div class="action-buttons">
-            <a href="index.php">
-                <button type="button">ยกเลิก</button>
-            </a>
-            <button type="submit">บันทึก</button>
-        </div>
+        <div class="form-actions">
+
+    <a href="homepage.php" class="btn-cancel">ยกเลิก</a>
+
+    <button type="submit" class="btn-save">บันทึก</button>
+
+     </div>
 
     </form>
 </main>
