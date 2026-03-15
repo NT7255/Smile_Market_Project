@@ -1,7 +1,13 @@
 <?php
-$conn = mysqli_connect("localhost","root","","smilemarket");
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "db_smilemarket"; // ชื่อฐานข้อมูลตามไฟล์ SQL ของคุณ
 
-if(!$conn){
-    die("เชื่อมต่อฐานข้อมูลไม่ได้");
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
+mysqli_set_charset($conn, "utf8");
 ?>
