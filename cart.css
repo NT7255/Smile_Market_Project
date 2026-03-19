@@ -38,13 +38,16 @@
 .cart-container.has-items .cart-empty {
     display: none;
 }
+/* จัดการกล่องรายการสินค้าแต่ละชิ้น */
 .cart-item {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 20px;
-    border: 1px solid #eee;
+    padding: 20px; /* เพิ่มพื้นที่ว่างด้านใน */
+    margin-bottom: 15px; /* เว้นระยะห่างระหว่างรายการสินค้า */
+    background-color: #fff;
     border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    gap: 20px; /* เว้นระยะห่างระหว่าง รูปภาพ | ข้อมูล | ปุ่มจำนวน | ปุ่มลบ */
 }
 .item-image img {
     width: 100px;
@@ -52,8 +55,12 @@
     object-fit: cover;
     border-radius: 8px;
 }
+/* เว้นระยะระหว่างชื่อสินค้ากับราคา */
 .item-info {
-    flex: 1;
+    flex: 1; /* ให้ส่วนข้อมูลขยายกินพื้นที่ตรงกลาง */
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* เว้นระยะห่างระหว่างชื่อกับราคา */
 }
 
 .item-name {
@@ -65,27 +72,31 @@
     color: #ff7a00;
     font-weight: bold;
 }
+/* จัดปุ่มเพิ่ม-ลดจำนวนสินค้า */
 .item-qty {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: #555;
-/*=======ปุ่ม + - จำนวนสินค้าในตะกร้า====*/
+    gap: 12px; /* เว้นระยะห่างรอบตัวเลขจำนวนสินค้า */
+    background-color: #f5f5f5;
+    padding: 5px 10px;
+    border-radius: 8px;
 }
 
-.qty-btn {
-    width: 28px;
-    height: 28px;
-    border: none;
-    border-radius: 6px;
-    background: #f0f0f0;
+/* ปุ่มลบสินค้า (สีแดงตามที่ต้องการ) */
+.remove-btn {
+    background-color: #ffeded; /* สีพื้นหลังแดงอ่อนๆ */
+    color: #ff4d4d; /* ตัวอักษรแดง */
+    border: 1px solid #ffcccc;
+    padding: 8px 15px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    margin-left: 10px; /* เว้นระยะห่างจากส่วนจำนวนสินค้า */
+    transition: 0.3s;
 }
 
-.qty-btn:hover {
-    background: #ddd;
+.remove-btn:hover {
+    background-color: #ff4d4d;
+    color: white;
 }
 
 .qty-number {
@@ -93,15 +104,24 @@
     text-align: center;
 }
 
+/* ปุ่มลบสินค้า */
 .remove-btn {
-    background: none;
+    background-color: #ff4d4d; /* สีแดง */
+    color: white;
     border: none;
-    font-size: 18px;
+    padding: 8px 15px;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
+/* เมื่อเอาเมาส์ไปวาง (Hover) จะเข้มขึ้น */
 .remove-btn:hover {
-    color: red;
+    background-color: #e60000;
 }
 /*==== สรุปราคารวม  ========*/
 .cart-summary {
