@@ -1,3 +1,69 @@
+<?php
+session_start();
+
+/* DEMO สินค้า 
+   if(!isset($_SESSION['cart'])){
+    $_SESSION['cart'] = [
+        1 => ['name'=>'หมูสด','price'=>140,'qty'=>1,'img'=>'product1.jpg'],
+        2 => ['name'=>'หมูบด','price'=>100,'qty'=>1,'img'=>'product2.jpg'],
+        3 => ['name'=>'อกไก่','price'=>80,'qty'=>1,'img'=>'product3.jpg']
+    ];
+}
+*/
+
+/* ACTION */
+if(isset($_GET['action'])){
+
+    $id = $_GET['id'];
+
+    if($_GET['action'] == 'plus'){
+        $_SESSION['cart'][$id]['qty']++;
+    }
+
+    if($_GET['action'] == 'minus'){
+
+    if(isset($_SESSION['cart'][$id])){
+
+        $_SESSION['cart'][$id]['qty']--;
+
+        if($_SESSION['cart'][$id]['qty'] <= 0){
+            unset($_SESSION['cart'][$id]);
+        }
+
+    }
+
+}
+
+    if($_GET['action'] == 'remove'){
+        unset($_SESSION['cart'][$id]);
+    }
+    if($_GET['action'] == 'add'){
+
+        $name = $_GET['name'];
+        $price = $_GET['price'];
+        $img = $_GET['img'];
+
+    if(isset($_SESSION['cart'][$id])){
+        $_SESSION['cart'][$id]['qty']++;
+    }else{
+        $_SESSION['cart'][$id] = [
+            'name'=>$name,
+            'price'=>$price,
+            'qty'=>1,
+            'img'=>$img
+        ];
+    }
+}
+    header("Location: cart.php");
+    exit();
+}
+
+/* TOTAL */
+$total = 0;
+foreach($_SESSION['cart'] as $item){
+    $total += $item['price'] * $item['qty'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,48 +76,63 @@
 <body>
     <?php include "tab-above-user2.php"; ?> <!-- แทบบน อย่าแก้ By เติ้ง --> <!--โหลดไฟล์ tab-above-user2.php ด้วย-->
     หน้ารถเข็น
-    <main class="cart-container has-items">
-    <div class="cart-list">
-        <div class="cart-item">
-            <div class="item-image">
-                <img src="images/product1.jpg" alt="สินค้า">
-            </div>
-            <div class="item-info">
-                <h3 class="item-name">หมูสด</h3>
-                <p class="item-price">฿140</p>
-            </div>
-            <div class="item-qty">
-                <button class="qty-btn">-</button>
-                <span class="qty-number">1</span>
-                <button class="qty-btn">+</button>
-            </div>
-            <button class="remove-btn"><svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  
-fill="currentColor" viewBox="0 0 24 24" >
-<!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free-->
-<path d="M17 6V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H2v2h2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8h2V6zM9 4h6v2H9zM6 20V8h12v12z"></path><path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
-</svg> ลบสินค้า</button>
-        </div>
+    <main class="cart-container <?php echo !empty($_SESSION['cart']) ? 'has-items' : ''; ?>">
 
-        <div class="cart-item">
-            <div class="item-image">
-                <img src="images/product2.jpg" alt="สินค้า">
-            </div>
-            <div class="item-info">
-                <h3 class="item-name">หมูบด</h3>
-                <p class="item-price">฿180</p>
-            </div>
-            <div class="item-qty">
-                <button class="qty-btn">-</button>
-                <span class="qty-number">1</span>
-                <button class="qty-btn">+</button>
-            </div>
-            <button class="remove-btn"><svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  
-fill="currentColor" viewBox="0 0 24 24" >
-<!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free-->
-<path d="M17 6V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H2v2h2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8h2V6zM9 4h6v2H9zM6 20V8h12v12z"></path><path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
-</svg> ลบสินค้า</button>
-        </div>
-    </div> 
-    <div class="cart-summary">
+    <!-- Empty State -->
+    <div class="cart-empty">
+        <h2>ตะกร้าสินค้าของคุณยังว่าง</h2>
+        <p>เมื่อคุณเพิ่มสินค้า สินค้าจะปรากฏที่นี่</p>
     </div>
+
+    <div class="cart-list">
+
+    <?php foreach($_SESSION['cart'] as $id => $item){ ?>
+
+    <div class="cart-item">
+
+    <div class="item-image">
+        <img src="images/<?php echo $item['img']; ?>">
+    </div>
+
+    <div class="item-info">
+        <h3 class="item-name"><?php echo $item['name']; ?></h3>
+        <p class="item-price">฿<?php echo $item['price']; ?></p>
+    </div>
+
+    <div class="item-qty">
+
+        <a href="cart.php?action=minus&id=<?php echo $id; ?>">
+        <button class="qty-btn">-</button>
+    </a>
+
+        <span class="qty-number"><?php echo $item['qty']; ?></span>
+
+        <a href="cart.php?action=plus&id=<?php echo $id; ?>">
+        <button class="qty-btn">+</button>
+    </a>
+
+</div>
+
+<a href="cart.php?action=remove&id=<?php echo $id; ?>">
+<button class="remove-btn">🗑</button>
+</a>
+
+</div>
+
+<?php } ?>
+
+</div>
+
+    <!-- สรุปราคา -->
+    <div class="cart-summary">
+        <div class="summary-row">
+            <span>ราคารวม</span>
+            <span class="summary-price">฿<?php echo $total; ?></span>
+        </div>
+       <a href="payment.php" class="checkout-btn">ชำระเงิน</a>
+    </div>
+
 </main>
+
+</body>
+</html>
