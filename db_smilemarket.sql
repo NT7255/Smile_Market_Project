@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2026 at 02:06 AM
+-- Generation Time: Apr 02, 2026 at 05:26 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -52,8 +52,8 @@ CREATE TABLE `tb_category` (
 --
 
 INSERT INTO `tb_category` (`cat_id`, `cat_name`, `cat_images`) VALUES
-('CAT001', 'ขนม', NULL),
-('CAT002', 'เนื้อสัตว์', NULL);
+('CAT001', 'เนื้อสัตว์', NULL),
+('CAT002', 'ขนม', NULL);
 
 -- --------------------------------------------------------
 
@@ -80,7 +80,9 @@ CREATE TABLE `tb_member` (
 --
 
 INSERT INTO `tb_member` (`member_id`, `member_email`, `member_password`, `member_tel`, `member_name`, `member_lastname`, `member_address`, `member_sex`, `member_birthday`, `member_image`, `member_permis`) VALUES
-('MB00001', 'nattapon.nt7255@gmail.com', '$2y$10$aFJvH3Nkx9LAW', NULL, '', '', NULL, NULL, NULL, NULL, NULL);
+('MB00001', 'nattapon.nt7255@gmail.com', '$2y$10$aFJvH3Nkx9LAW', NULL, '', '', NULL, NULL, NULL, NULL, NULL),
+('MB00002', 'test2@email.com', '$2y$10$7Hkf1fL23elyu', NULL, '', '', NULL, NULL, NULL, NULL, NULL),
+('MB00003', 'test2@email.com', '$2y$10$KsEzsLVJXjEhE', NULL, '', '', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -139,7 +141,8 @@ CREATE TABLE `tb_product` (
 --
 
 INSERT INTO `tb_product` (`pro_id`, `pro_name`, `pro_price`, `pro_info`, `pro_image`, `cat_show`, `pro_unit`, `pro_subinfo`, `pro_exdate`) VALUES
-('PRO001', 'หมูบด', 150, 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 'PRO001_1772975268.jpg', NULL, NULL, 'สด นุ่ม อร่อย', NULL);
+('PRO001', 'หมูสับ', 150, 'xxxxxxxxxxxxxxxxxxxxxxxxxxx', 'img_1775097651.jpg', NULL, NULL, 'สด อร่อย หนุ่ม', NULL),
+('PRO002', 'เลย์', 20, 'xxxxxxxxxxxxxxxxxxxxxx', 'img_1775097711.jpg', NULL, NULL, 'กรอบๆ มันฝรั่งแท้', NULL);
 
 -- --------------------------------------------------------
 
@@ -182,7 +185,8 @@ CREATE TABLE `tb_tag` (
 --
 
 INSERT INTO `tb_tag` (`pro_id`, `cat_id`) VALUES
-('PRO001', 'CAT002');
+('PRO001', 'CAT001'),
+('PRO002', 'CAT002');
 
 -- --------------------------------------------------------
 
@@ -205,8 +209,24 @@ CREATE TABLE `tb_transport` (
 CREATE TABLE `tb_users` (
   `user_id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `firstname` varchar(100) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `birthday` date NOT NULL,
+  `gender` varchar(20) NOT NULL,
+  `address` text NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `tb_users`
+--
+
+INSERT INTO `tb_users` (`user_id`, `email`, `password`, `firstname`, `lastname`, `phone`, `birthday`, `gender`, `address`, `status`) VALUES
+(1, 'test@email.com', '$2y$10$RicUburgiHP6BlHiBorXI.AJcOFVKyzBnr1AW4Dzdk9yGVGBVxiIe', 'teemarot', 'test1', '0987654321', '2222-07-07', 'ชาย', '33/1 ต.บางครุ อ.พระประแดง', 'โสด'),
+(4, 'test3@email.com', '$2y$10$QF1QtXn1WMTrumFbl/koEOLFITqoTdctmlJUVNzxiZOATA1tjUtHq', 'เทสส', 'เทสส3', '0011223344', '2002-02-22', 'ชาย', '11/22 บางครุ พระประแดง', 'โหด'),
+(5, 'Nattapon@email.com', '$2y$10$fhxCWlv5V3nn5bnL9xoare.Qy9yqaTH3JJvnHPTcGv6n22/BvWNKy', 'Nattapon', 'Trakul', '0123456789', '0000-00-00', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -295,7 +315,7 @@ ALTER TABLE `tb_users`
 -- AUTO_INCREMENT for table `tb_users`
 --
 ALTER TABLE `tb_users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
