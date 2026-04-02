@@ -116,3 +116,11 @@
     width: 100%;
     height: 150px;
 }
+/* ดันให้ tab-menu อยู่หน้าสุดเสมอ */
+.tab-menu-container { /* หรือชื่อ class/id ของเมนูคุณ */
+    z-index: 9999 !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}

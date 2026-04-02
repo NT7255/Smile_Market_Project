@@ -28,8 +28,9 @@ $res = mysqli_query($conn, $sql);
         <aside class="admin-sidebar">
             <div class="sidebar-menu">
                 <a href="admin_goods_add.php" class="menu-btn">เพิ่มสินค้า</a>
-                <a href="admin_goods_manage.php" class="menu-btn">แก้ไข-ลบข้อมูลสินค้า</a> <a href="#" class="menu-btn">เพิ่มประเภทสินค้า</a>
-                <a href="#" class="menu-btn">แก้ไข-ลบประเภทสินค้า</a>
+                <a href="admin_goods_edit.php" class="menu-btn">แก้ไข-ลบข้อมูลสินค้า</a> 
+                <a href="admin_category_add.php" class="menu-btn">เพิ่มประเภทสินค้า</a>
+                <a href="admin_category_edit.php" class="menu-btn">แก้ไข-ลบประเภทสินค้า</a>
             </div>
         </aside>
 
@@ -41,7 +42,7 @@ $res = mysqli_query($conn, $sql);
             <?php if (mysqli_num_rows($res) > 0): ?>
                 <div class="admin-product-grid">
                     <?php while($row = mysqli_fetch_array($res)): ?>
-                        <a href="admin_detail_<?php echo $row['pro_id']; ?>.php" class="admin-product-card-link">
+                       <a href="admin_detail_template.php?pro_id=<?php echo $row['pro_id']; ?>">
                             <div class="admin-product-card">   
                                 <div class="admin-product-img">
                                     <img src="images/goods/<?php echo $row['pro_image']; ?>" alt="">

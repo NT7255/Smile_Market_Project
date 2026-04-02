@@ -2,10 +2,10 @@
 session_start();
 include "connect.php";
 
-if (!isset($_SESSION['email'])) {
-    header("Location: login.php");
-    exit();
-}
+// if (!isset($_SESSION['email'])) {
+//     header("Location: login.php");
+//     exit();
+// }
 
 $email = $_SESSION['email'];
 $message = "";

@@ -19,3 +19,7 @@ body{
 .goods_floor{
     display: flex;
 }
+.goods_cate {
+    margin-bottom: 50px;
+     /* เว้นระยะห่างระหว่างหมวดหมู่สินค้าแต่ละชั้น */
+}

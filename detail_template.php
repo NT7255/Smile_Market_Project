@@ -1,7 +1,9 @@
 <?php
 include "connect.php";
 
-// ดึงข้อมูลสินค้าพร้อมชื่อหมวดหมู่
+// รับค่าจาก URL (เช่น detail_template.php?pro_id=PRO001)
+$pro_id = isset($_GET['pro_id']) ? $_GET['pro_id'] : '';
+
 $sql = "SELECT p.*, c.cat_id, c.cat_name FROM tb_product p 
         LEFT JOIN tb_tag t ON p.pro_id = t.pro_id 
         LEFT JOIN tb_category c ON t.cat_id = c.cat_id
@@ -9,7 +11,10 @@ $sql = "SELECT p.*, c.cat_id, c.cat_name FROM tb_product p
 $res = mysqli_query($conn, $sql);
 $item = mysqli_fetch_array($res);
 
-if(!$item) { echo "ไม่พบข้อมูลสินค้า"; exit; }
+if(!$item) { 
+    echo "<script>alert('ไม่พบข้อมูลสินค้า'); window.location='homepage.php';</script>"; 
+    exit; 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +24,7 @@ if(!$item) { echo "ไม่พบข้อมูลสินค้า"; exit; }
     <title><?php echo $item['pro_name']; ?></title>
     <link rel="stylesheet" href="detail.css"> <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="yellow_bg.css">
+    <link rel="stylesheet" href="tab-menu.css">
 </head>
 <body class="yellow_bg">
     <?php include "tab-above-user2.php"; ?> 
@@ -70,8 +76,13 @@ if(!$item) { echo "ไม่พบข้อมูลสินค้า"; exit; }
 
         <div class="detail_zone">
             <p class="title-is16px"><b>รายละเอียดสินค้า</b></p>
-            <p class="l-is16px"><?php echo nl2br($item['pro_info']); ?></p>
+            <p class="l-is16px" style="line-height: 1.8;"><?php echo nl2br($item['pro_info']); ?></p>
+        </div>
+        
+        <div style="margin-top: 40px; text-align: center;">
+            <a href="homepage.php" style="color: #666; text-decoration: none;">กลับหน้าหลัก</a>
         </div>
     </div>
+
 </body>
 </html>

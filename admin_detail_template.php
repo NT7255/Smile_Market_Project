@@ -1,6 +1,8 @@
 <?php
 include "connect.php";
-// รับค่า $pro_id จากไฟล์หลัก
+// รับค่าที่ส่งมาจากหน้า homepage
+$pro_id = $_GET['pro_id']; 
+
 $sql = "SELECT p.*, c.cat_id, c.cat_name FROM tb_product p 
         LEFT JOIN tb_tag t ON p.pro_id = t.pro_id 
         LEFT JOIN tb_category c ON t.cat_id = c.cat_id
@@ -8,7 +10,10 @@ $sql = "SELECT p.*, c.cat_id, c.cat_name FROM tb_product p
 $res = mysqli_query($conn, $sql);
 $item = mysqli_fetch_array($res);
 
-if(!$item) { echo "ไม่พบข้อมูลสินค้า"; exit; }
+if(!$item) { 
+    echo "ไม่พบข้อมูลสินค้าในระบบ (ID: $pro_id)"; 
+    exit; 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,10 +111,12 @@ if(!$item) { echo "ไม่พบข้อมูลสินค้า"; exit; }
                         <a href="admin_goods_edit.php?pro_id=<?php echo $item['pro_id']; ?>" style="text-decoration: none;">
                             <button class="btn-admin-edit">แก้ไขข้อมูล</button>
                         </a>
-                        <a href="admin_goods_delete.php?pro_id=<?php echo $item['pro_id']; ?>" 
-                           onclick="return confirm('คุณต้องการลบสินค้านี้ใช่หรือไม่?')" 
-                           style="text-decoration: none;">
-                            <button class="btn-admin-delete">ลบสินค้านี้</button>
+                        <a href="process_delete_goods.php?id=<?php echo $item['pro_id']; ?>" 
+                        onclick="return confirm('ยืนยันการลบสินค้า [<?php echo $item['pro_name']; ?>] หรือไม่?')" 
+                        style="text-decoration: none;">
+                            <button style="background-color: #dc3545; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%;">
+                                ลบสินค้านี้
+                            </button>
                         </a>
                     </div>
                 </div>

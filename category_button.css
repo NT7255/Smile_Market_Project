@@ -1,37 +1,48 @@
-.cate_bt{
-    background-color: #FF8A00;
-    color: white;
-    width:auto;
-    height: 44px;
-    border: none;
-    border-radius: 8px;
-    padding: 0 20px 0 20px;
-    margin: 0 16px 0 0px;
-    font-weight: bold;
-}.cate_bt:hover{
+/* ตัวคุมปุ่มทั้งหมด (div class="category") */
+.category {
+    display: flex;       /* จัดเรียงปุ่มเป็นแนวนอน */
+    flex-wrap: wrap;     /* ถ้าปุ่มเยอะเกินหน้าจอ ให้ขึ้นบรรทัดใหม่เอง */
+    gap: 12px;           /* เว้นระยะห่างระหว่างปุ่ม 12px (ปรับเลขได้ตามชอบ) */
+    padding: 20px 0;     /* เพิ่มพื้นที่ด้านบนและล่างของแถบปุ่ม */
+    justify-content: flex-start; /* จัดปุ่มให้เริ่มจากทางซ้าย */
+}
+
+/* สไตล์ปุ่มปกติ (สีเทา/ขาว ตามที่คุณตั้งไว้) */
+.cate_bt {
+    background-color: #f0f0f0; /* ตัวอย่าง */
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.cate_bt:hover{
     background-color: #fb9622;
     color: white;
     border: none;
-}.cate_bt:active{
-    background-color: #feac4f;
-    color: white;
-    border: none;
+}
+/* สไตล์เมื่อปุ่มถูกเลือก (Active) */
+.cate_bt.active {
+    background-color: #FF8A00 !important; /* สีส้ม */
+    color: white !important;
+    border-color: #FF8A00 !important;
 }
 
-.cate_bt_non{
-    background-color: #F8F8F8;
+/* ปุ่มหมวดหมู่ที่ไม่ได้ถูกเลือก (ขอบส้ม พื้นขาว) */
+.cate_bt_non {
+    background-color: white;
     color: #FF8A00;
-    width:auto;
-    height: 44px;
-    border: 2px solid #FF8A00;
+    border: 1px solid #FF8A00;
+    padding: 8px 20px;
     border-radius: 8px;
-    padding: 0 20px 0 20px;
-    margin: 0 16px 0 0px;
-    font-weight: bold;
-}.cate_bt_non:hover{
-    background-color: #fce4c9;
-    color: #fb9622;
-    border: 2px solid #fb9622;
+    cursor: pointer;
+    
+    /* เพิ่มบรรทัดนี้ */
+    transition: 0.3s; 
+}
+
+/* เพิ่มเอฟเฟกต์ตอนเอาเมาส์ไปชี้เพื่อให้ดูมีมิติขึ้น */
+.cate_bt_non:hover {
+    background-color: #FF8A00;
+    color: white;
 }
 .cate_bt_non:active{
     background-color: #F8F8F8;

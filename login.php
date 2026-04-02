@@ -54,7 +54,7 @@ if (isset($_POST['login'])) {
 
     <div class="login-section">
         <div class="login-content">
-            <img src="assets/images/smilemarketlogo.jpg" alt="Smile Market Logo" class="logo">
+            <img src="images/smile-market-logo-cutouted.png" alt="Smile Market Logo" class="logo">
 
             <h3>กรอกเพื่อเข้าสู่ระบบ</h3>
 
@@ -83,7 +83,7 @@ if (isset($_POST['login'])) {
     </div>
 
     <div class="image-section">
-        <img src="assets/images/shopping.jpg" alt="shopping">
+        <img src="images/shopping.jpg" alt="shopping">
     </div>
 
 </div>
